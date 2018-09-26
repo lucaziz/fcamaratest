@@ -1,0 +1,57 @@
+@import 'assets/scss/_loads';
+
+
+table{display:table; width: 100%; border-collapse: collapse;}
+thead, tbody{
+    display: table;
+    min-width: 100%;
+}
+tbody tr:nth-child(odd){background-color: #f9f9f9;}
+tr{
+    display: table-row;
+    width: 100%;
+    border-bottom-width:1px;
+    border-bottom-style:solid;
+    border-color: #CCC;
+    align-items:center;
+    padding:0;
+    &:hover{
+        background-color: #f0f0f0;
+    }
+    
+}
+td, th{
+    display: table-cell;
+    padding: 0 24px;
+    height: 40px;
+    border-bottom: none;
+    vertical-align: middle;
+}
+td{
+    cursor: pointer;
+}
+.row-btn{
+    padding: 20px 0;
+    &:before{
+        content: '';
+    }
+}
+
+@media only screen and (max-width: 780px) {
+    table, thead, tbody, th, td, tr {
+		display: block;
+    }
+    thead{display: none;}
+    td, th { 
+		border-bottom: 1px solid #eee; 
+        position: relative;
+        line-height: 40px;
+        &:first-child {
+            border-top: 1px solid #eee; 
+        }
+	}
+	
+    .row-btn{
+        @include justify-content(center);
+    }
+}

@@ -1,0 +1,28 @@
+<div class="general-box small">
+    <form [formGroup]="form" (submit)="submitPerson()" novalidate>
+      <div class="field">
+        <label>Nome completo:</label>
+        <input type="text" formControlName="name" />
+      </div>
+      <div class="field">
+        <label>Cpf:</label>
+        <input type="text" formControlName="cpf" />
+      </div>
+      <div class="field">
+        <label>Telefone:</label>
+        <input type="text" formControlName="phone" />
+      </div>
+      <div class="field">
+        <label>E-mail:</label>
+        <input type="text" formControlName="email" />
+      </div>
+      <div class="row-btn">
+        <button type="button" class="btn-default" [routerLink]="['/list']">Voltar</button>
+        <div class="row-btn-actions" [class.edit]="edit">
+            <button *ngIf="edit" type="button" class="btn-warn" (click)="removePerson()">Excluir</button>
+            <button [disabled]="!form.valid" type="submit">{{(edit ? 'Salvar' : 'Adicionar')}}</button>
+        </div>
+      </div>
+      
+    </form>
+</div>

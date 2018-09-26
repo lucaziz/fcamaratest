@@ -1,0 +1,23 @@
+<div class="row-btn">
+  <button [routerLink]="['/adicionar']">Adicionar Pessoa</button>
+</div>
+<div class="general-box">
+  <table>
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Cpf</th>
+        <th>Telefone</th>
+        <th>email</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let person of listaPersons" routerLink="/detail/{{person.id}}">
+        <td>{{person.name}}</td>
+        <td>{{person.cpf}}</td>
+        <td>{{person.phone}}</td>
+        <td>{{person.email}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

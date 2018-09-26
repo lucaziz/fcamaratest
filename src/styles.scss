@@ -1,1 +1,104 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'assets/scss/_loads';
+
+h1, h2, h3, h4, h5, h6{margin: 0; padding: 0; font-weight: 400;}
+a{text-decoration: none;}
+input, textarea, button, select{font-family: $font;}
+*{outline: none; @include box-sizing(border-box);}
+
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    font-family: $font;
+    color: $text-color;
+}
+.content{
+    width: 1140px;
+    margin: 0 auto;
+}
+h1{
+    padding: 24px 0;
+    font-size: 40px;
+    color: $color-secondary;
+    text-align: center;
+}
+.general-box{
+    padding: 24px 0;
+    background-color: white;
+    border: solid 1px #DDD;
+    @include border-radius(10px);
+    &.small{
+        width: 450px; 
+        margin: 0 auto;
+    }
+}
+
+// FORM
+.field{
+    padding: 10px;
+    margin: 0 10px;
+    position: relative;
+    @include calc(width, '100% - 20px');
+    @include display-flex;
+    @include flex-flow(column);
+    @include align-items(flex-start);
+    input{
+        font-size: 1.4em;
+        color: black;
+        width: 100%;
+        padding: 0 20px;
+        height: 50px;
+        background-color: white;
+        border: solid 1px #CCC;
+        @include border-radius(3px);
+        @include input-placeholder{
+            color: rgba(black, 0.5);
+            text-transform: uppercase;
+        }
+        &.ng-invalid:not(.ng-untouched){border-color: $red-color;}
+    }
+    label{
+        font-size: 14px;
+        padding-bottom: 5px;
+    }
+}
+.row-btn{
+    width: 100%;
+    padding: 20px 20px 10px;
+    @include display-flex;
+    @include justify-content(space-between);
+    button{
+        padding: 0 24px;
+        min-height: 50px;
+        line-height: 50px;
+        background-color: $color-secondary;
+        color: white;
+        border: none;
+        text-transform: uppercase;
+        cursor: pointer;
+        @include border-radius(5px);
+        &.btn-warn{
+            background-color: $red-color;
+        }
+        &.btn-default{
+            background-color: $grey-color;
+        }
+        &[type=submit]{margin-left: 12px;}
+        &[disabled]{cursor: default; @include opacity(0.2);}
+    }
+}
+
+@media only screen and (max-width: 1140px) {
+    .content{width: 990px;}
+}
+@media only screen and (max-width: 780px) {
+    .content{width: 100%; padding: 10px;}
+    .general-box.small{ width: 100%; }
+    .row-btn{
+        flex-flow: column;
+        button{ width: 100%; margin-bottom: 12px;}
+        button[type=submit]{margin-left: 0;}
+    }
+
+}
