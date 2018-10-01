@@ -1,15 +1,15 @@
 <div class="general-box small">
     <form [formGroup]="form" (submit)="submitPerson()" novalidate>
       <div class="field">
-        <label>Nome completo:</label>
+        <label>Full Name:</label>
         <input type="text" formControlName="name" />
       </div>
       <div class="field">
-        <label>Cpf:</label>
+        <label>CPF:</label>
         <input type="text" formControlName="cpf" />
       </div>
       <div class="field">
-        <label>Telefone:</label>
+        <label>Phone number:</label>
         <input type="text" formControlName="phone" />
       </div>
       <div class="field">
@@ -17,10 +17,10 @@
         <input type="text" formControlName="email" />
       </div>
       <div class="row-btn">
-        <button type="button" class="btn-default" [routerLink]="['/list']">Voltar</button>
+        <button type="button" class="btn-default" [routerLink]="['/list']">Back</button>
         <div class="row-btn-actions" [class.edit]="edit">
-            <button *ngIf="edit" type="button" class="btn-warn" (click)="removePerson()">Excluir</button>
-            <button [disabled]="!form.valid" type="submit">{{(edit ? 'Salvar' : 'Adicionar')}}</button>
+            <button *ngIf="edit" type="button" class="btn-warn" (click)="removePerson()">Remove</button>
+            <button [disabled]="!form.valid" type="submit">{{(edit ? 'Save' : 'Add')}}</button>
         </div>
       </div>
       
